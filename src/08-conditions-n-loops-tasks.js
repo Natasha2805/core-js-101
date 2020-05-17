@@ -298,7 +298,7 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/*ccn*/) {
+function isCreditCardNumber(/* ccn */) {
 
 }
 
@@ -347,7 +347,7 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(/*str*/) {
+function isBracketsBalanced(/* str */) {
 
 }
 
@@ -396,7 +396,7 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(/*pathes*/) {
+function getCommonDirectoryPath(/* pathes */) {
 
 }
 

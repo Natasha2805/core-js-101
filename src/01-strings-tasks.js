@@ -234,16 +234,19 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  const toChar = String.fromCharCode;
-  return str
-    .split('')
-    .map((el) => {
-      const charCode = el.charCodeAt();
-      if ((charCode > 77 && charCode < 91) || (charCode > 109 && charCode < 123)) return toChar(charCode - 13);
-      if ((charCode > 64 && charCode < 78) || (charCode > 96 && charCode < 110)) return toChar(charCode + 13);
-      return toChar(charCode);
-    })
-    .join('');
+  const code = {
+    input: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+    output: 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm',
+  };
+
+  let res = '';
+
+  for (let i = 0; i < str.length; i += 1) {
+    const char = str[i];
+    const symbol = code.output[code.input.indexOf(char)] || char;
+    res += symbol;
+  }
+  return res;
 }
 
 /**
@@ -290,7 +293,13 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  return cardValue[value.slice(-1)] + (cardValue[value[0]] || +value.slice(0, -1)) - 1;
+  const deckArr = [
+    'A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠',
+  ];
+  return deckArr.findIndex((el) => (el === value));
 }
 
 
