@@ -69,7 +69,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  return array.filter((el) => el > 0);
+  return arr.filter((el) => el > 0);
 }
 
 /**
@@ -457,8 +457,8 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(n) {
-  return Array(n).fill(Array(n).fill(0)).map((arr, number) => arr.map((el, ind) => (ind === number ? 1 : 0)));
+function getIdentityMatrix(/* n */) {
+
 }
 
 /**
@@ -577,7 +577,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-  return indexes.length === 1 ? arr[indexes[0]] : getElementByIndexes(arr[indexes[0]], indexes.splice(1));
+  return indexes.reduce((acc, index) => acc[index], arr);
 }
 
 

@@ -199,10 +199,10 @@ function partialUsingArguments(fn, ...args1) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-  let id = startForm - 1;
+  let result = startFrom - 1;
   return () => {
-    id += 1;
-    return id;
+    result += 1;
+    return result;
   };
 }
 
